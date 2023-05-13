@@ -19,10 +19,10 @@ def desenho(qtd_erros):
         break
 
 
-def mensagem_com_linhas(msg):
-    print('-' * 40)
+def mensagem_com_linhas(msg, tamanho=40):
+    print('-' * tamanho)
     print(msg)
-    print('-' * 40)
+    print('-' * tamanho)
 
 
 def colorir(cor):
@@ -37,13 +37,17 @@ def colorir(cor):
 
 palavras = {'frutas': ['banana', 'uva', 'abacaxi', 'morango', 'abacate', 'amora',
                        'framboesa', 'pêra', 'maçã', 'laranja', 'jaca', 'goiaba', 'acerola',
-                       'limão', 'tangerina', 'maracujá', 'ameixa', 'mamão', 'coco', 'figo']}
+                       'limão', 'tangerina', 'maracujá', 'ameixa', 'mamão', 'coco', 'figo'],
+            'animais': ['gato', 'cachorro', 'leão', 'tigre', 'elefante', 'girafa', 'zebra',
+                        'rinoceronte', 'macaco', 'gorila', 'coelho', 'rato', 'cobra', 'águia',
+                        'baleia', 'tubarão', 'tartaruga', 'crocodilo', 'golfinho', 'canguru']}
 
-#No dicionário palavras, estou pegando os values de 'frutas', e randomizando um valor dessa lista (value).
-#escolhida = palavras['frutas'][randint(0, len(palavras['frutas']) - 1)]
-escolhida = choice(palavras['frutas'])
+#O choice requer uma lista como argumento, sendo assim, as keys foram colocadas numa list().
+tema = choice(list(palavras.keys()))
+print(f'O tema escolhido foi: {tema}')
+escolhida = choice(palavras[tema])
 print()
-print(f'A fruta escolhida tem {len(escolhida)} letras: ', end='')
+print(f'A palavra escolhida tem {len(escolhida)} letras: ', end='')
 print('_' * len(escolhida))
 
 # Fazendo a lista com underlines, de acordo com a palavra escolhida.
@@ -71,12 +75,12 @@ while True:
     print()
     if erros < 7:
         if '_' not in escondida:
-            mensagem_com_linhas('Jogo finalizado!')
+            mensagem_com_linhas('Jogo finalizado!', 20)
             colorir('verde_negrito')
             print('Você venceu! ')
             break
     else:
-        mensagem_com_linhas('Jogo finalizado!')
+        mensagem_com_linhas('Jogo finalizado!', 20)
         colorir('vermelho_negrito')
         print(f'Você perdeu! A palavra era {escolhida}')
         break
