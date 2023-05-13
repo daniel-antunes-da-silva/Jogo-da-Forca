@@ -73,10 +73,10 @@ while True:
         if '_' not in escondida:
             mensagem_com_linhas('Jogo finalizado!')
             colorir('verde_negrito')
-            print('\nVocê venceu! ')
+            print('Você venceu! ')
             break
     else:
         mensagem_com_linhas('Jogo finalizado!')
         colorir('vermelho_negrito')
-        print(f'\nVocê perdeu! A palavra era {escolhida}')
+        print(f'Você perdeu! A palavra era {escolhida}')
         break
